@@ -1,2 +1,3 @@
-# cassava-kaggle-2020
-Working files of cassava leaf disease classification challenge 2020
+# Cassava Leaf Disease Classification Kaggle challenge 2020
+
+You can clone the repo and download the image data from [Here](https://www.kaggle.com/c/cassava-leaf-disease-classification/data)
