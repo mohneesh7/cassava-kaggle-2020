@@ -47,6 +47,11 @@ for image in test_images:
     print(img.shape)
     predictions.extend(best_model.predict(img).argmax(axis = 1))
     print(best_model.predict(img))
+    fig = plt.figure(figsize=(10,10))
+    ax = fig.add_axes([0,0,1,1])
+    x = [0,1,2,3,4]
+    y = best_model.predict(img)
+    ax.bar(x,y)
+    st.pyplot(fig)
 
     
-st.bar_chart(x = best_model.predict(img), y = [0,1,2,3,4])
