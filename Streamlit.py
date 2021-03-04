@@ -39,7 +39,7 @@ predictions = []
 
 
 for image in test_images:
-    img = image.read()
+    
     img = Image.open(image)
     img = img.resize(size)
     print(img)
