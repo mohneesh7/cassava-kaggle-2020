@@ -29,7 +29,7 @@ mixed_precision.set_policy(policy)
 
 IMG_SIZE = 512
 size = (IMG_SIZE,IMG_SIZE)
-best_model = k.models.load_model('https://github.com/mohneesh7/cassava-kaggle-2020/blob/main/models/Cassava_best_model_effnetb4.h5',compile=False)
+best_model = k.models.load_model('models/Cassava_best_model_effnetb4.h5',compile=False)
 print(best_model)
 TEST_DIR = 'D:\\Projects\\Redundant Stuff\\Cassava Leaf Disease Detection\\test_images\\'
 test_images = os.listdir(TEST_DIR)
