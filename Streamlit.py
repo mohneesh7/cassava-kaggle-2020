@@ -47,7 +47,7 @@ for image in test_images:
     print(img.shape)
     predictions.extend(best_model.predict(img).argmax(axis = 1))
     print(best_model.predict(img))
-    fig = plt.figure(figsize=(10,10)
+    fig = plt.figure(figsize=(10,10))
     x = [0,1,2,3,4]
     y = best_model.predict(img)
     ax.bar(x,y)
