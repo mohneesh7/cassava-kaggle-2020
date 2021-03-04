@@ -32,14 +32,19 @@ size = (IMG_SIZE,IMG_SIZE)
 best_model = k.models.load_model('models/Cassava_best_model_effnetb4.h5',compile=False)
 print(best_model)
 TEST_DIR = 'test_images/'
-test_images = os.listdir(TEST_DIR)
+test_images = st.file_uploader('File uploader')
 predictions = []
 
+
+
 for image in test_images:
-    img = Image.open(TEST_DIR + image)
+    img = Image.open( image)
     img = img.resize(size)
     print(img)
     img = np.expand_dims(img, axis=0)
     print(img.shape)
     predictions.extend(best_model.predict(img).argmax(axis = 1))
     print(best_model.predict(img))
+
+    
+st.bar_chart(predictions)
