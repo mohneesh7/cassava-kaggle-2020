@@ -33,7 +33,8 @@ size = (IMG_SIZE,IMG_SIZE)
 best_model = k.models.load_model('models/Cassava_best_model_effnetb4.h5',compile=False)
 print(best_model)
 TEST_DIR = 'test_images/'
-test_images = st.file_uploader('File uploader')
+test_images = []
+test_images.append(st.file_uploader('File uploader'))
 predictions = []
 
 
