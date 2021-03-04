@@ -31,7 +31,7 @@ IMG_SIZE = 512
 size = (IMG_SIZE,IMG_SIZE)
 best_model = k.models.load_model('models/Cassava_best_model_effnetb4.h5',compile=False)
 print(best_model)
-TEST_DIR = 'D:\\Projects\\Redundant Stuff\\Cassava Leaf Disease Detection\\test_images\\'
+TEST_DIR = 'test_images'
 test_images = os.listdir(TEST_DIR)
 predictions = []
 
