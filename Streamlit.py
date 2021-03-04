@@ -2,6 +2,7 @@ import os
 import glob
 import json
 import numpy as np
+from io import BytesIO
 import tensorflow.keras as k
 import pandas as pd
 import seaborn as sns
@@ -38,7 +39,7 @@ predictions = []
 
 
 for image in test_images:
-    img = Image.open( image)
+    img = Image.open( BytesIO(image))
     img = img.resize(size)
     print(img)
     img = np.expand_dims(img, axis=0)
