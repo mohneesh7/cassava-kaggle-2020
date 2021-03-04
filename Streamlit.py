@@ -46,7 +46,7 @@ for image in test_images:
         img = np.expand_dims(img, axis=0)
         print(img.shape)
         predictions.extend(best_model.predict(img).argmax(axis = 1))
-        values = best_model.predict(img)
+        values = best_model.predict(img)[0]
         st.text(str(values))
         data = pd.DataFrame({'class':[0,1,2,3,4],'values':values})
         st.bar_chart(data)
