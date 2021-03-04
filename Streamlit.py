@@ -10,7 +10,7 @@ import tensorflow.keras as k
 from PIL import Image
 import matplotlib.pyplot as plt
 from tensorflow.keras import backend as K 
-import efficientnet.keras as efn
+import efficientnet.tfkeras as efn
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.optimizers import RMSprop, Adam
 from tensorflow.keras.applications import VGG16
