@@ -39,18 +39,15 @@ predictions = []
 
 
 for image in test_images:
-    
-    img = Image.open(image)
-    img = img.resize(size)
-    print(img)
-    img = np.expand_dims(img, axis=0)
-    print(img.shape)
-    predictions.extend(best_model.predict(img).argmax(axis = 1))
-    print(best_model.predict(img))
-    fig,ax = plt.figure(figsize=(10,10))
-    x = [0,1,2,3,4]
-    y = best_model.predict(img)
-    ax.bar(x,y)
-    st.pyplot(fig)
+    if image != None:
+        img = Image.open(image)
+        img = img.resize(size)
+        print(img)
+        img = np.expand_dims(img, axis=0)
+        print(img.shape)
+        predictions.extend(best_model.predict(img).argmax(axis = 1))
+        values = best_model.predict(img)
+        data = pd.DataFrame({'class':[0,1,2,3,4],'values':values})
+        st.bar_chart(data)
 
     
