@@ -2,7 +2,7 @@ import os
 import glob
 import json
 import numpy as np
-import keras
+import tensorflow.keras as k
 import pandas as pd
 import seaborn as sns
 import tensorflow as tf
@@ -29,7 +29,7 @@ mixed_precision.set_policy(policy)
 
 IMG_SIZE = 512
 size = (IMG_SIZE,IMG_SIZE)
-best_model = keras.models.load_model('D:\\Projects\\Redundant Stuff\\Cassava Leaf Disease Detection\\models\\Cassava_best_model_effnetb4.h5',compile=False)
+best_model = k.models.load_model('D:\\Projects\\Redundant Stuff\\Cassava Leaf Disease Detection\\models\\Cassava_best_model_effnetb4.h5',compile=False)
 print(best_model)
 TEST_DIR = 'D:\\Projects\\Redundant Stuff\\Cassava Leaf Disease Detection\\test_images\\'
 test_images = os.listdir(TEST_DIR)
