@@ -49,4 +49,4 @@ for image in test_images:
     print(best_model.predict(img))
 
     
-st.bar_chart(best_model.predict(img))
+st.bar_chart(x = best_model.predict(img), y = [0,1,2,3,4])
