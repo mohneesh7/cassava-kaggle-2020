@@ -2,7 +2,7 @@ import os
 import glob
 import json
 import numpy as np
-from io import BytesIO
+
 import tensorflow.keras as k
 import pandas as pd
 import seaborn as sns
@@ -37,9 +37,9 @@ test_images = st.file_uploader('File uploader')
 predictions = []
 
 
-
 for image in test_images:
-    img = Image.open( BytesIO(image))
+    img = image.read()
+    img = Image.open(image)
     img = img.resize(size)
     print(img)
     img = np.expand_dims(img, axis=0)
