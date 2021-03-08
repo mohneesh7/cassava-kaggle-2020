@@ -40,7 +40,7 @@ test_images = []
 test_images.append(st.file_uploader('File uploader'))
 predictions = []
 
-button = st.button("Click to find your Top 10!")
+button = st.button("Let's GO")
 
 if button:
     with st.spinner(text = "Wait a Minute"):
