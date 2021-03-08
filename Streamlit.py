@@ -50,7 +50,7 @@ with st.spinner(text = "Wait a Minute"):
             print(img.shape)
             predictions.extend(best_model.predict(img).argmax(axis = 1))
             values = best_model.predict(img)[0]
-            st.text(Probability Values: str(values))
+            st.text('Probability Values:' + str(values))
             data = pd.DataFrame({'values':values})
             st.bar_chart(data)
             st.text("""
