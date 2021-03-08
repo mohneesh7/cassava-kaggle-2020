@@ -28,6 +28,9 @@ policy = mixed_precision.Policy('mixed_float16')
 mixed_precision.set_policy(policy)
 import streamlit as st
 
+
+st.header("Cassava Leaf Disease Detection")
+
 IMG_SIZE = 512
 size = (IMG_SIZE,IMG_SIZE)
 best_model = k.models.load_model('models/Cassava_best_model_effnetb4.h5',compile=False)
@@ -37,18 +40,26 @@ test_images = []
 test_images.append(st.file_uploader('File uploader'))
 predictions = []
 
-
-for image in test_images:
-    if image != None:
-        img = Image.open(image)
-        img = img.resize(size)
-        print(img)
-        img = np.expand_dims(img, axis=0)
-        print(img.shape)
-        predictions.extend(best_model.predict(img).argmax(axis = 1))
-        values = best_model.predict(img)[0]
-        st.text(str(values))
-        data = pd.DataFrame({'values':values})
-        st.bar_chart(data)
+with st.spinner(text = "Wait a Minute"):
+    for image in test_images:
+        if image != None:
+            img = Image.open(image)
+            img = img.resize(size)
+            print(img)
+            img = np.expand_dims(img, axis=0)
+            print(img.shape)
+            predictions.extend(best_model.predict(img).argmax(axis = 1))
+            values = best_model.predict(img)[0]
+            st.text(Probability Values: str(values))
+            data = pd.DataFrame({'values':values})
+            st.bar_chart(data)
+            st.text("""
+            0 : Cassava Bacterial Blight (CBB)
+            1 : Cassava Mosaic Disease (CMD)
+            2 : Cassava Brown Streak Disease (CBSD)
+            3 : Cassava Green Mottle (CGM)
+            4 : Healthy
+            """)
+            st.success("Here are the Results")
 
     
